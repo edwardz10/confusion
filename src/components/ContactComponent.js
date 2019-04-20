@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Breadcrumb, BreadcrumbItem, Button, Form, Label, Col, Row } from "reactstrap";
+import { Breadcrumb, BreadcrumbItem, Button, Label, Col, Row } from "reactstrap";
 import {Link} from "react-router-dom";
 import { Control, LocalForm, Errors } from 'react-redux-form';
 
@@ -75,7 +75,7 @@ class Contact extends Component {
                                            name="firstname" placeholder="First Name"
                                            className="form-control"
                                            validators={{
-                                                required, minLength: minLength(3), maxLength: maxLength(3)
+                                                required, minLength: minLength(3), maxLength: maxLength(15)
                                            }}
                                            />
                                     <Errors
@@ -97,7 +97,7 @@ class Contact extends Component {
                                            name="lastname" placeholder="Last Name"
                                            className="form-control"
                                            validators={{
-                                                required, minLength: minLength(3), maxLength: maxLength(3)
+                                                required, minLength: minLength(3), maxLength: maxLength(15)
                                            }}
                                            />
                                     <Errors
@@ -119,7 +119,7 @@ class Contact extends Component {
                                            name="telnum" placeholder="Tel. Number"
                                            className="form-control"
                                            validators={{
-                                                required, minLength: minLength(3), maxLength: maxLength(3), isNumber
+                                                required, minLength: minLength(3), maxLength: maxLength(15), isNumber
                                            }}
                                            />
                                     <Errors
