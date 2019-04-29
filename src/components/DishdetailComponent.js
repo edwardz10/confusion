@@ -24,7 +24,7 @@ function RenderDish({dish}) {
     );
 }
 
-function RenderComments({comments, addComment, dishId}) {
+function RenderComments({comments, postComment, dishId}) {
     if (comments === null || comments.length === 0) {
         return (
             <div/>
@@ -51,7 +51,7 @@ function RenderComments({comments, addComment, dishId}) {
             <div className="col-12 col-xs-5 col-sm-5 m-1">
                 <h4>Comments</h4>
                 {commentsDisplayed}
-                <CommentForm dishId={dishId} addComment={addComment} />
+                <CommentForm dishId={dishId} postComment={postComment} />
             </div>
         );
     }
@@ -83,7 +83,7 @@ class CommentForm extends Component {
 
     handleSubmit(values) {
         this.toggle();
-        this.props.addComment(this.props.dishId, values.rating, values.author, values.comment);
+        this.props.postComment(this.props.dishId, values.rating, values.author, values.comment);
     }
 
     render() {
@@ -109,7 +109,7 @@ class CommentForm extends Component {
                             <Row className="form-group">
                                 <Label htmlFor="yourname" md={4}>Your Name</Label>
                                 <Col md={12}>
-                                    <Control.text model=".yourname" id="yourname"
+                                    <Control.text model=".author" id="yourname"
                                         name="yourname" placeholder="Your Name"
                                         className="form-control"
                                         validators={{
@@ -183,7 +183,7 @@ const DishDetail = (props) => {
                 <div className="row">
                     <RenderDish dish={props.dish}/>
                     <RenderComments comments={props.comments}
-                        addComment={props.addComment}
+                        postComment={props.postComment}
                         dishId={props.dish.id} />
                 </div>
             </div>
